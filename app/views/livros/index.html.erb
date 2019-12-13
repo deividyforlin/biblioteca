@@ -2,23 +2,23 @@
 
 <h1>Livros</h1>
 
-<table>
+<table class="table table-striped table-dark">
   <thead>
     <tr>
-      <th>Tituto</th>
-      <th>Descricao</th>
-      <th colspan="3"></th>
+      <th scope="col">Tituto</th>
+      <th scope="col">Descricao</th>
+      <th colspan="3" scope="col"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @livros.each do |livro| %>
       <tr>
-        <td><%= livro.tituto %></td>
+        <th scope="row"><%= livro.tituto %></th>
         <td><%= livro.descricao %></td>
         <td><%= link_to 'Show', livro %></td>
         <td><%= link_to 'Edit', edit_livro_path(livro) %></td>
-        <td><%= link_to 'Destroy', livro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', livro, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Livro', new_livro_path %>
+<%= link_to 'New Livro', new_livro_path, class: "btn btn-primary" %>
